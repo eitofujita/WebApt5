@@ -86,7 +86,7 @@ $errors = $_GET['errors'] ?? [];
       <?= in_array('email', $errors) ? '<span class="error">Некорректный Email</span>' : '' ?>
     </label><br>
 
-    <label>うんこ食べたいうんこ食べたい:
+    <label>Дата рождеия:
       <input type="date" name="birthdate" value="<?= htmlspecialchars($values['birthdate']) ?>">
     </label><br>
 
