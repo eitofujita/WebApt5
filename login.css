@@ -1,0 +1,17 @@
+/* ラベルと入力欄を縦に揃える（共通フォーム崩さず） */
+form.login-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+}
+
+/* 入力欄だけ最小限スタイル整える */
+form.login-form input[type="text"],
+form.login-form input[type="password"] {
+    padding: 0.6rem;
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
