@@ -1,3 +1,4 @@
+<<一応>>
 ssh u69347@kubsu-dev.ru -p 58528
 
 u69347
@@ -10,17 +11,14 @@ code:
  sudo apt update
 sudo apt install apache2 php libapache2-mod-php php-mysql mysql-server unzip -y
 
-wsl側にパス移動するするコードコード
-cd /
- 
 
-scp index.php youruser@yourip:/var/www/html/
+ 
 
 パスワード
 ED25519 key fingerprint is SHA256:hcuKpTcIwM7EHzimOeWdFZlW1Nz8s5+f+mQuRDbyQqI.
 
 
-azuru
+<<azuru>>
 
 
 scp -r /path/to/local/folder azureuser@<AzureのIP>:/home/azureuser/
@@ -30,18 +28,40 @@ scp -r /path/to/local/folder azureuser@<AzureのIP>:/home/azureuser/
 sudo cp /mnt/c/xampp/htdocs/WebApt5/test_db.php /var/www/html/
 sudo tail -n 30 /var/log/apache2/error.log
 scp -i ~/.ssh/newweb5_key.pem -r /mnt/c/xampp/htdocs/WebApt5 azureuser@51.120.247.90:/var/www/html/
+alias deployweb="scp -i ~/.ssh/newweb5_key.pem -r /mnt/c/xampp/htdocs/WebApt5 azureuser@51.120.247.90:/var/www/html/"
+
 ssh -i ~/.ssh/newweb5_key.pem azureuser@51.120.247.90
 
 http://51.120.247.90/WebApt5/
 
 http://51.120.247.90/phpmyadmin
 
-sql
+<<sql>>
+
 mysql -u root -p
 use webapt5 
 
+<<git>
 
-13c8138a
 
 
-3f164c4f
+git init <<初回はこれが必要>>
+
+git config --global user.name
+git config --global user.email も忘れずに
+
+git add .
+git commit -m "ここに更新内容の説明を書く"
+git push origin main
+
+ssh 
+
+cd /var/www/html/WebApt5
+git pull origin main
+
+
+<<ssh>>
+
+alias deployweb='scp -i ~/.ssh/newweb5_key.pem -r /mnt/c/xampp/htdocs/WebApt5 azureuser@51.120.247.90:/var/www/html/'
+
+"deployweb"
