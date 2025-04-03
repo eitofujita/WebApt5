@@ -4,7 +4,7 @@ require_once 'config.php';
 
 if(!isset($_SESSION['admin_logged_in'])){
   header('Location: admin_login.php');
-  exit }
+  exit; }
 
   $stmt = $pdo->query("select*from users");
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
