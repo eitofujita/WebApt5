@@ -18,7 +18,7 @@ if(!isset($_SESSION['admin_logged_in'])){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Добро пожаловать, <?= htmlspecialchars($_SESSION['admin_username']) ?>!</h1>
+    <h1>Меню, <?= htmlspecialchars($_SESSION['admin_username']) ?>!</h1>
     <h2>Список пользователей</h2>
 
     <table border="1">
