@@ -63,7 +63,7 @@ alias gpull='ssh azureuser@51.120.247.90 "cd /var/www/html/WebApt5 && git pull o
 git ssh
 git remote set-url origin git@github.com:eitofujita/WebApt5.git
 あなたのGitHubリポジトリのURL
-pass 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
+
     
 git add .
 新しいファイル追加時
