@@ -17,9 +17,11 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 
-$stmt = $pdo->prepare("DELETE FROM users WHERE id = ?");
-$stmt->execute([$id]);
+$pdo->prepare("DELETE FROM form_data WHERE user_id = ?")->execute([$id]);
+
+
+$pdo->prepare("DELETE FROM users WHERE id = ?")->execute([$id]);
 
 header('Location: admin.php');
 exit;
-?>
+
