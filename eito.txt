@@ -40,19 +40,33 @@ http://51.120.247.90/phpmyadmin
 
 mysql -u root -p
 use webapt5 
-
+d
 <<git>
 
 
 
 git init <<初回はこれが必要>>
 
-git config --global user.name
+{git config --global user.name
 git config --global user.email も忘れずに
-
 git add .
 git commit -m "ここに更新内容の説明を書く"
-git push origin main
+git push origin main}
+
+省略コマンド
+
+git config --global credential.helper store　//パスワードなどの質問のコマンド
+alias gpush='git add . && git commit -m "auto update" && git push origin main'
+ローカルの変更をGitHubに送る（アップロード）
+alias gpull='ssh azureuser@51.120.247.90 "cd /var/www/html/WebApt5 && git pull origin main"'
+サーバー側でGitHubの最新バージョンを取得（ダウンロード）
+git ssh
+git remote set-url origin git@github.com:eitofujita/WebApt5.git
+あなたのGitHubリポジトリのURL
+pass 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
+    
+git add .
+新しいファイル追加時
 
 ssh 
 
