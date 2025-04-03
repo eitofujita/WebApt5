@@ -2,13 +2,13 @@
 session_start();
 require_once 'config.php';
 
-// 未ログインならログインページへリダイレクト
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// 成功後は 2 秒後にリダイレクト
+
 $showSuccess = isset($_GET['success']);
 if ($showSuccess) {
     header("Refresh: 2; URL=index.php");

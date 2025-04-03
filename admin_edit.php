@@ -2,13 +2,13 @@
 session_start();
 require_once 'config.php';
 
-// 管理者ログインチェック
+
 if (!isset($_SESSION['admin_logged_in'])) {
     header('Location: admin_login.php');
     exit;
 }
 
-// ユーザーIDが指定されていなければリダイレクト
+
 if (!isset($_GET['id'])) {
     header('Location: admin.php');
     exit;
@@ -17,7 +17,7 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 $error = '';
 
-// ユーザー情報取得
+
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->execute([$id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -26,7 +26,7 @@ if (!$user) {
     die('Пользователь не найден');
 }
 
-// フォームが送信された場合
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fio = $_POST['fio'] ?? '';
     $phone = $_POST['phone'] ?? '';

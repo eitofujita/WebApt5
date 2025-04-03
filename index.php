@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-// DB設定読み込み
+
 require_once 'config.php';
 
-// DBからログイン中ユーザーの情報を取得
+
 $values = [
     'fio' => '',
     'phone' => '',
@@ -17,7 +17,7 @@ $values = [
 $languages = [];
 
 if (isset($_SESSION['user_id'])) {
-    // 認証済みならDBからデータ取得
+   
     $pdo = new PDO(DSN, DB_USER, DB_PASS);
     $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
     $stmt->execute([$_SESSION['user_id']]);
@@ -36,7 +36,7 @@ if (isset($_SESSION['user_id'])) {
         $languages = explode(',', $user['languages']);
     }
 } else {
-    // 未ログインならCookieまたはGET
+   
     $values = [
         'fio' => $_COOKIE['fio'] ?? $_GET['fio'] ?? '',
         'phone' => $_COOKIE['phone'] ?? $_GET['phone'] ?? '',

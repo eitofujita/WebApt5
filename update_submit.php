@@ -16,13 +16,13 @@ $languages = $_POST['languages'] ?? [];
 $bio = $_POST['bio'] ?? '';
 $agree = isset($_POST['agree']) ? 1 : 0;
 
-// 簡単なバリデーション（必要に応じて追加）
+
 $errors = [];
 if (empty($fio)) $errors[] = 'fio';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'email';
 
 if (!empty($errors)) {
-    // エラーがあれば戻す
+   
     $query = http_build_query(['errors' => $errors]);
     header("Location: update.php?$query");
     exit;
@@ -30,7 +30,7 @@ if (!empty($errors)) {
 
 $languages_str = implode(',', $languages);
 
-// DB更新処理
+
 $pdo = new PDO(DSN, DB_USER, DB_PASS);
 $stmt = $pdo->prepare("
     UPDATE users SET 
@@ -44,6 +44,6 @@ $stmt->execute([
     $_SESSION['user_id']
 ]);
 
-// 更新完了後に戻す
+
 header('Location: update.php?success=1');
 exit;
