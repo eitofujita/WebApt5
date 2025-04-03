@@ -41,6 +41,15 @@ http://51.120.247.90/phpmyadmin
 mysql -u root -p
 use webapt5 
 d
+
+
+SQLの種類	意味
+SELECT * FROM users	全ユーザーを取得して
+INSERT INTO users ...	新しいユーザーを追加して
+UPDATE users SET ...	ユーザー情報を修正して
+DELETE FROM users WHERE id=1	特定のユーザーを削除して
+
+
 <<git>
 
 

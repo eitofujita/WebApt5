@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
+    
     $stmt = $pdo->prepare("select * from admins where username = ?");
     $stmt->execute([$username]);
     $admin = $stmt->fetch();
