@@ -57,7 +57,7 @@ $errors = $_GET['errors'] ?? [];
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Задание 5 - Форма</title>
+  <title>Задание 6 - Форма</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
