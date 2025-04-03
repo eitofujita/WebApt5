@@ -23,7 +23,7 @@ if ($_server['request_method'] === 'POST'){
         $error = 'Неверный логин или пароль.';
 
     }
-}
+} ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
