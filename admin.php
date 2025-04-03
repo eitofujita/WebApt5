@@ -32,9 +32,9 @@ if(!isset($_SESSION['admin_logged_in'])){
         <?php foreach ($users as $user): ?>
         <tr>
             <td><?= $user['id'] ?></td>
-            <td><?= htmlspecialchars($user['fio']) ?></td>
-            <td><?= htmlspecialchars($user['phone']) ?></td>
-            <td><?= htmlspecialchars($user['email']) ?></td>
+            <td><?= htmlspecialchars($user['fio'] ?? '') ?></td>
+            <td><?= htmlspecialchars($user['phone'] ?? '') ?></td>
+            <td><?= htmlspecialchars($user['email'] ?? '') ?></td>
             <td>
                 <a href="admin_edit.php?id=<?= $user['id'] ?>">✏️ Редактировать</a> |
                 <a href="admin_delete.php?id=<?= $user['id'] ?>" onclick="return confirm('Удалить этого пользователя?')">🗑️ Удалить</a>
