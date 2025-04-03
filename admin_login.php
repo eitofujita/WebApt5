@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_one 'config.php';
+require_once 'config.php';
+
 
 $error = '';
 
