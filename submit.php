@@ -12,10 +12,10 @@ $phone = $_POST['phone'] ?? '';
 $email = $_POST['email'] ?? '';
 $birthdate = $_POST['birthdate'] ?? '';
 $gender = $_POST['gender'] ?? '';
-$allowed_genders = ['male', 'female', 'other'];
+$allowed_genders = ['male', 'female'];
 
 if (!in_array($gender, $allowed_genders)) {
-    $gender = 'other'; 
+    $gender = 'female'; 
 }
 $languages = $_POST['languages'] ?? [];
 $bio = $_POST['bio'] ?? '';
@@ -54,7 +54,7 @@ $gender_map = [
     'female' => 'F',
     
 ];
-$gender = $_POST['gender'] ?? '';
+$gender = $_POST['gender'];
 $gender = $gender_map[$gender] ?? 'F';
 
 $stmt = $pdo->prepare("
