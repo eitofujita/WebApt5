@@ -57,8 +57,24 @@ $gender_map = [
 $gender = $_POST['gender'] ?? '';
 $gender = $gender_map[$gender] ?? 'F';
 
-$stmt = $pdo->prepare("INSERT INTO users (login, password_hash, gender) VALUES (?, ?, ?)");
-$stmt->execute([$login, $password_hash, $gender]);
+$stmt = $pdo->prepare("
+    INSERT INTO users (login, password_hash, fio, phone, email, birthdate, gender, languages, bio, agree)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+");
+
+$stmt->execute([
+    $login,
+    $password_hash,
+    $fio,
+    $phone,
+    $email,
+    $birthdate,
+    $gender,
+    implode(',', $languages), 
+    $bio,
+    $agree
+]);
+
 
 $stmt2 = $pdo->prepare("INSERT INTO form_data (user_id, message) VALUES (?, ?)");
 $stmt2->execute([$pdo->lastInsertId(), $bio]);
