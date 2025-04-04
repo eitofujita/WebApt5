@@ -59,4 +59,5 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <p><a href="logout.php">Выйти</a></p>
 </body>
+<a href="stats.php">Статистика по языкам</a>
 </html>
