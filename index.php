@@ -122,8 +122,9 @@ $errors = $_GET['errors'] ?? [];
     </label><br>
 
     <label>Пол:
-  <input type="radio" name="gender" value="male" <?= $values['gender'] == 'male' ? 'checked' : '' ?>> М
-  <input type="radio" name="gender" value="female" <?= $values['gender'] == 'female' ? 'checked' : '' ?>> Ж
+    <label><input type="radio" name="gender" value="male" required> M</label>
+    <label><input type="radio" name="gender" value="female"> F</label>
+
   
   </label><br>
 
