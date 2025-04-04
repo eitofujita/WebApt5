@@ -11,11 +11,11 @@ $fio = $_POST['fio'] ?? '';
 $phone = $_POST['phone'] ?? '';
 $email = $_POST['email'] ?? '';
 $birthdate = $_POST['birthdate'] ?? '';
-$gender = $_POST['gender'] ?? '';
+$gender = $_POST['gender'] ?? 'female';
 $allowed_genders = ['male', 'female'];
 
 if (!in_array($gender, $allowed_genders)) {
-    $gender = 'female'; 
+    $gender_input = 'female'; 
 }
 $languages = $_POST['languages'] ?? [];
 $bio = $_POST['bio'] ?? '';
@@ -54,8 +54,8 @@ $gender_map = [
     'female' => 'F',
     
 ];
-$gender = $_POST['gender'];
-$gender = $gender_map[$gender];
+
+$gender = $gender_map[$gender_input];
 
 $stmt = $pdo->prepare("
     INSERT INTO users (login, password_hash, fio, phone, email, birthdate, gender, languages, bio, agree)
