@@ -55,7 +55,7 @@ $gender_map = [
     
 ];
 $gender = $_POST['gender'];
-$gender = $gender_map[$gender] ?? 'F';
+$gender = $gender_map[$gender_input];
 
 $stmt = $pdo->prepare("
     INSERT INTO users (login, password_hash, fio, phone, email, birthdate, gender, languages, bio, agree)
