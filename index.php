@@ -72,19 +72,20 @@ $errors = $_GET['errors'] ?? [];
   <?php endif; ?>
 
   <form action="<?= isset($_SESSION['user_id']) ? 'update_submit.php' : 'submit.php' ?>" method="POST">
-    <label>ФИО:
-      <input type="text" name="fio" value="<?= htmlspecialchars($values['fio']) ?>">
-      <?= in_array('fio', $errors) ? '<span class="error">Некорректное ФИО</span>' : '' ?>
-    </label><br>
+  <label>ФИО:
+  <input type="text" name="fio" value="<?= htmlspecialchars($values['fio'] ?? '') ?>">
+  <?= in_array('fio', $errors) ? '<span class="error">Некорректное ФИО</span>' : '' ?>
+</label><br>
 
-    <label>Телефон:
-      <input type="tel" name="phone" value="<?= htmlspecialchars($values['phone']) ?>">
-    </label><br>
+<label>Телефон:
+  <input type="tel" name="phone" value="<?= htmlspecialchars($values['phone'] ?? '') ?>">
+</label><br>
 
-    <label>Email:
-      <input type="email" name="email" value="<?= htmlspecialchars($values['email']) ?>">
-      <?= in_array('email', $errors) ? '<span class="error">Некорректный Email</span>' : '' ?>
-    </label><br>
+<label>Email:
+  <input type="email" name="email" value="<?= htmlspecialchars($values['email'] ?? '') ?>">
+  <?= in_array('email', $errors) ? '<span class="error">Некорректный Email</span>' : '' ?>
+</label><br>
+
 
     <label>Дата рождения :/<!DOCTYPE html>
     <html lang="en">
