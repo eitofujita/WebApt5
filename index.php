@@ -34,7 +34,7 @@ if (isset($_SESSION['user_id'])) {
             'agree' => $user['agree']
         ];
         $languages = isset($user['languages']) ? explode(',', $user['languages']) : [];
-
+      }
 } else {
    
     $values = [
