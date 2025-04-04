@@ -33,8 +33,8 @@ if (isset($_SESSION['user_id'])) {
             'bio' => $user['bio'],
             'agree' => $user['agree']
         ];
-        $languages = explode(',', $user['languages']);
-    }
+        $languages = isset($user['languages']) ? explode(',', $user['languages']) : [];
+
 } else {
    
     $values = [
