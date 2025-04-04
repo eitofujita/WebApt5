@@ -136,7 +136,7 @@ $errors = $_GET['errors'] ?? [];
     </label><br>
 
     <label>Биография:
-      <textarea name="bio"><?= htmlspecialchars($values['bio']) ?></textarea>
+      <textarea name="bio"><?= htmlspecialchars($values['bio'] ?? '') ?></textarea>
     </label><br>
 
     <label>
