@@ -10,13 +10,11 @@ $fio = $_POST['fio'] ?? '';
 $phone = $_POST['phone'] ?? '';
 $email = $_POST['email'] ?? '';
 $birthdate = $_POST['birthdate'] ?? '';
-$gender_input = $_POST['gender'] ?? 'female'; // ← ここをgender_inputに
+$gender_input = $_POST['gender'] ?? 'female';
 $allowed_genders = ['male', 'female'];
-
 if (!in_array($gender_input, $allowed_genders)) {
-    $gender_input = 'female';
+    $gender_input = 'female'; // ← ここで必ず male または female に
 }
-
 $languages = $_POST['languages'] ?? [];
 $bio = $_POST['bio'] ?? '';
 $agree = isset($_POST['agree']) ? 1 : 0;
@@ -49,10 +47,9 @@ $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
 $gender_map = [
     'male' => 'M',
-    'female' => 'F',
+    'female' => 'F'
 ];
-
-$gender = $gender_map[$gender_input]; // ← ここで必ず M か F に変換される
+$gender = $gender_map[$gender_input]; 
 
 $stmt = $pdo->prepare("
     INSERT INTO users (login, password_hash, fio, phone, email, birthdate, gender, languages, bio, agree)
