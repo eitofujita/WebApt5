@@ -25,3 +25,4 @@ $pdo->prepare("DELETE FROM users WHERE id = ?")->execute([$id]);
 header('Location: admin.php');
 exit;
 
+ef258a47

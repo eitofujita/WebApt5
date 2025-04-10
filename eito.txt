@@ -88,3 +88,6 @@ git pull origin main
 alias deployweb='scp -i ~/.ssh/newweb5_key.pem -r /mnt/c/xampp/htdocs/WebApt5 azureuser@51.120.247.90:/var/www/html/'
 
 "deployweb"
+
+
+e5737258
