@@ -71,6 +71,13 @@ $errors = $_GET['errors'] ?? [];
     <p class="error">❌ Обнаружены ошибки. Пожалуйста, проверьте введённые данные.</p>
   <?php endif; ?>
 
+  <?php
+  session_start();
+  if(empty($_SESSION['csrf_token'])){
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+  }
+  ?>
+
   <form action="<?= isset($_SESSION['user_id']) ? 'update_submit.php' : 'submit.php' ?>" method="POST">
   <label>ФИО:
   <input type="text" name="fio" value="<?= htmlspecialchars($values['fio'] ?? '') ?>">
@@ -87,7 +94,10 @@ $errors = $_GET['errors'] ?? [];
 </label><br>
 
 
-    <label>Дата рождения :/<!DOCTYPE html>
+<label>Дата рождения:
+  <input type="date" name="birthdate" value="<?= htmlspecialchars($values['birthdate'] ?? '') ?>">
+</label><br>
+
     <html lang="en">
     <head>
       <meta charset="UTF-8">
@@ -144,7 +154,7 @@ $errors = $_GET['errors'] ?? [];
       <input type="checkbox" name="agree" value="1" <?= $values['agree'] ? 'checked' : '' ?>>
       С контрактом ознакомлен(а)
     </label><br>
-
+    <input type="hidden" name="csrf_token" value="<?=htmlspecialchars($_SESSION['csrf_token']) ?>">
     <input type="submit" value="<?= isset($_SESSION['user_id']) ? 'Обновить' : 'Сохранить' ?>">
   </form>
 
